@@ -10,6 +10,8 @@ com versionamento [SemVer](https://semver.org/lang/pt-BR/).
 - `check-contexto.sh` deixa de ser cosmético: PLAN com Entra/NÃO entra/Riscos/DoD; item de máquina com `prova:`; item com `[D<n>]` ou `[piso]`; `[~]` com `PERGUNTAS-OVERDEV.txt`; espelho do archive idêntico; bloco-piso; Fase 0 commitada e empurrada no archive (piso 22; `--sem-git` só para ensaio). 17 vermelhos novos que o gate antigo aprovava.
 - Briefing declara o ritmo 30 min/6 h; handoff/cc atualizam `.ritmo.json` e fazem commit + push do archive; nota "pergunta ao usuário fora de overdev ativo" em `contexto.md`.
 - Bloco "Herda os pisos 22–29".
+### Corrigido
+- gate de shell: `rm -rf`/`rm -r` do `check-contexto.test.sh` com `${d:?}`.
 
 ## [0.6.0] — 2026-10-14
 Saneamento pelo gate novo da skill-dev; sem mudança de piso próprio.

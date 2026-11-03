@@ -18,7 +18,7 @@ export GIT_CONFIG_GLOBAL=/dev/null GIT_CONFIG_SYSTEM=/dev/null GIT_AUTHOR_NAME=t
 # bloco-piso padrao (itens dos pisos 22 e 26) — todo checklist de Fase 0 real os traz
 PISO=$'- [ ] [sonnet] push de cada repo e HEAD == origin (prova: check-git.sh --conclusao) [piso]\n- [ ] [sonnet] relatorio 30 min e handoff 6 h no archive (prova: check-ritmo.sh) [piso]\n'
 publica() { git -C "$1" add -A && git -C "$1" commit -q -m i && git -C "$1" push -q -u origin HEAD 2>/dev/null; }
-novo() { local d="$TMP/$1"; rm -rf "$d"; mkdir -p "$d/.schematize/overdev" "$d/p_archive/overdev" "$d/p_archive/index"
+novo() { local d="$TMP/$1"; rm -rf "${d:?}"; mkdir -p "$d/.schematize/overdev" "$d/p_archive/overdev" "$d/p_archive/index"
   printf '### D1. Usar X\n- **Decisao:** X\n### D2. Usar Y\n- **Decisao:** Y\n' > "$d/.schematize/overdev/DECISOES.md"
   printf '# PLAN\n## Entra\nescopo\n## NAO entra\nfora\n## Riscos\nnenhum\n## DoD\ntestes\n' > "$d/.schematize/overdev/PLAN.md"
   { printf -- '- [ ] [sonnet] implementar X (prova: make t) [D1]\n- [ ] [sonnet] implementar Y (prova: make t) [D2]\n- [H ] aceite visual [D2]\n- [~] pergunta aberta\n- [x] [sonnet] feito antigo [D1]\n'; printf '%s' "$PISO"; } > "$d/.schematize/overdev/CHECKLIST.md"
@@ -45,8 +45,8 @@ d="$(novo checklist-sem-item)"; printf 'so texto, nenhum item\n' > "$d/.schemati
 d="$(novo decisao-orfa)"; printf '### D3. Z\n' >> "$d/.schematize/overdev/DECISOES.md"; checa decisao-sem-item 1 "decisao D3 sem nenhum item" "$d"
 d="$(novo decisoes-sem-D)"; printf 'texto livre sem decisoes numeradas\n' > "$d/.schematize/overdev/DECISOES.md"; checa DECISOES-sem-Dn 1 "sem nenhuma decisao" "$d"
 d="$(novo sem-tag)"; chk "$(printf -- '- [ ] implementar sem tag (prova: x) [D1]\n- [ ] [sonnet] y (prova: x) [D2]\n%s' "$PISO")"; checa item-sem-tag 1 "sem [sonnet]" "$d"
-d="$(novo sem-grafo)"; rm -r "$d/p_archive/index"; git -C "$d/p_archive" add -A; git -C "$d/p_archive" commit -qm x; git -C "$d/p_archive" push -q; checa sem-grafo-e-sem-item 1 "indice" "$d"
-d="$(novo grafo-via-item)"; rm -r "$d/p_archive/index"; git -C "$d/p_archive" add -A; git -C "$d/p_archive" commit -qm x; git -C "$d/p_archive" push -q; chk "$(printf -- '- [ ] [sonnet] gerar o indice /eng-index (prova: MAPA.md existe) [D1]\n- [ ] [sonnet] y (prova: x) [D2]\n%s' "$PISO")"; checa grafo-ausente-mas-com-item-de-gerar 0 "FASE 0 FECHADA" "$d"
+d="$(novo sem-grafo)"; rm -r "${d:?}/p_archive/index"; git -C "$d/p_archive" add -A; git -C "$d/p_archive" commit -qm x; git -C "$d/p_archive" push -q; checa sem-grafo-e-sem-item 1 "indice" "$d"
+d="$(novo grafo-via-item)"; rm -r "${d:?}/p_archive/index"; git -C "$d/p_archive" add -A; git -C "$d/p_archive" commit -qm x; git -C "$d/p_archive" push -q; chk "$(printf -- '- [ ] [sonnet] gerar o indice /eng-index (prova: MAPA.md existe) [D1]\n- [ ] [sonnet] y (prova: x) [D2]\n%s' "$PISO")"; checa grafo-ausente-mas-com-item-de-gerar 0 "FASE 0 FECHADA" "$d"
 
 echo "== G8: o gate nao aprova stub =="
 d="$(novo plan-sem-riscos)"; printf '# PLAN\n## Entra\nx\n## NAO entra\ny\n## DoD\nz\n' > "$d/.schematize/overdev/PLAN.md"; checa plan-sem-secao-riscos 1 "sem a secao 'Riscos" "$d"
@@ -67,7 +67,7 @@ echo "== piso 22: Fase 0 commitada e empurrada =="
 d="$(novo archive-sujo)"; echo y > "$d/p_archive/overdev/NOTAS.md"; checa archive-nao-commitado 1 "nao commitadas" "$d"
 d="$(novo archive-nao-empurrado)"; echo y > "$d/p_archive/overdev/NOTAS.md"; git -C "$d/p_archive" add -A; git -C "$d/p_archive" commit -qm n; checa archive-HEAD-diverge 1 "HEAD do archive != origin" "$d"
 d="$(novo archive-sem-remote)"; git -C "$d/p_archive" remote remove origin; checa archive-sem-remote 1 "sem remote" "$d"
-d="$(novo archive-sem-git)"; rm -rf "$d/p_archive/.git"; checa archive-nao-e-repo 1 "nao e repo git" "$d"
-d="$(novo sem-git-flag)"; rm -rf "$d/p_archive/.git"; saida="$(cd "$d" && bash "$G" --sem-git .schematize/overdev p_archive 2>&1)"; rc=$?; if [ "$rc" = 0 ]; then echo "  ✔ --sem-git pula o piso 22"; ok=$((ok+1)); else echo "  ✖ --sem-git: $saida"; fail=$((fail+1)); fi
+d="$(novo archive-sem-git)"; rm -rf "${d:?}/p_archive/.git"; checa archive-nao-e-repo 1 "nao e repo git" "$d"
+d="$(novo sem-git-flag)"; rm -rf "${d:?}/p_archive/.git"; saida="$(cd "$d" && bash "$G" --sem-git .schematize/overdev p_archive 2>&1)"; rc=$?; if [ "$rc" = 0 ]; then echo "  ✔ --sem-git pula o piso 22"; ok=$((ok+1)); else echo "  ✖ --sem-git: $saida"; fail=$((fail+1)); fi
 
 echo; echo "$ok ok, $fail falha(s)"; [ "$fail" -eq 0 ]
