@@ -1,0 +1,12 @@
+slug = "overdev-context"
+name = "schematize-overdev-context"
+tag = "Ferramenta · Overdev/Contexto"
+status = "beta"
+order = 19
+current_version = "0.7.0"
+href = "/overdev-context"
+
+[descriptions]
+pt = "O montador de contexto do overdev da casa (a Fase 0 / fundação): varre a sessão/repo e colhe as DECISÕES acordadas (decisão · motivo · alternativa descartada · origem), ancora no GRAFO do índice (MAPA + adjacência), escreve o PLAN pesado (escopo, itens verificáveis, ordem, paralelismo, riscos, DoD), deriva o CHECKLIST exaustivo por contagem na convenção de 3 classes (`- [ ]` máquina / `- [H ]` humano / `- [~]` on-hold) e entrega o DOCUMENTO DE CONTEXTO GERAL — o briefing que o /eng-overdev e o `schematize overdev start` CONSOMEM antes do laço."
+en = "The house overdev context builder (Phase 0 / foundation): sweeps the session/repo and collects the AGREED decisions (decision · rationale · rejected alternative · origin), anchors on the index GRAPH (MAP + adjacency), writes the HEAVY plan (scope, verifiable items, order, parallelism, risks, DoD), derives the exhaustive CHECKLIST by count in the 3-class convention (`- [ ]` machine / `- [H ]` human / `- [~]` on-hold) and delivers the GENERAL CONTEXT document — the briefing that /eng-overdev and `schematize overdev start` CONSUME before the loop."
+es = "El montador de contexto del overdev de la casa (la Fase 0 / fundación): recorre la sesión/repo y recoge las DECISIONES acordadas (decisión · motivo · alternativa descartada · origen), se ancla en el GRAFO del índice (MAPA + adyacencia), escribe el PLAN pesado (alcance, ítems verificables, orden, paralelismo, riesgos, DoD), deriva el CHECKLIST exhaustivo por conteo en la convención de 3 clases (`- [ ]` máquina / `- [H ]` humano / `- [~]` on-hold) y entrega el DOCUMENTO DE CONTEXTO GENERAL — el briefing que /eng-overdev y `schematize overdev start` CONSUMEN antes del bucle."

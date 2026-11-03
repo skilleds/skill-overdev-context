@@ -3,7 +3,7 @@ name = "schematize-overdev-context"
 tag = "Ferramenta · Overdev/Contexto"
 status = "beta"
 order = 19
-current_version = "0.6.0"
+current_version = "0.7.0"
 href = "/overdev-context"
 
 [descriptions]
