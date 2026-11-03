@@ -4,7 +4,7 @@ Todas as mudanças relevantes deste pacote, no formato [Keep a Changelog](https:
 com versionamento [SemVer](https://semver.org/lang/pt-BR/).
 
 
-## [Não lançado]
+## [0.7.0] — 2026-11-03
 ### Adicionado
 - Bloco-piso obrigatório no checklist da Fase 0 (`plano-checklist.md` B.1, `overdev-context-build`): push + `HEAD == origin` (22), relatório 30 min/handoff 6 h + `custos/` (26) e, quando o plano tem, matriz de acesso (20), passkey (21), gatilho de CI sem PR (27) e resiliência (28).
 - `check-contexto.sh` deixa de ser cosmético: PLAN com Entra/NÃO entra/Riscos/DoD; item de máquina com `prova:`; item com `[D<n>]` ou `[piso]`; `[~]` com `PERGUNTAS-OVERDEV.txt`; espelho do archive idêntico; bloco-piso; Fase 0 commitada e empurrada no archive (piso 22; `--sem-git` só para ensaio). 17 vermelhos novos que o gate antigo aprovava.
