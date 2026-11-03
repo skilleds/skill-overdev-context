@@ -9,4 +9,5 @@ Antes de compactar, **arquive o handoff** (não perca o estado da montagem de co
    colhidas, nós do grafo ancorados, on-holds abertos, onde parou.
 2. `<projeto>_archive/context/<YYYY-MM-DD-HH-MM-SS>-checklist.md` — **FEITO vs EM ABERTO** das
    etapas da fundação (o que da Fase 0 falta montar antes de soltar o laço).
+   Atualize `ultimo_handoff` em `.ritmo.json` (piso 26) e faça commit + push do archive (piso 22).
 3. Só então rode `/compact` (foco na tarefa corrente).

@@ -64,6 +64,14 @@ checklist é o **control-plane** que o hook do overdev lê; espelha em
   estados de **erro/loading/vazio**, **doc-comment + índice/MAPA** (§39), **DoD** (§35),
   **archive** (§28). O que não está no checklist não vai ser feito — checklist magro = trabalho
   perdido.
+- **BLOCO-PISO obrigatório** (itens-padrão `[sonnet]`, rastreados por `[piso]` no lugar de `[D<n>]`,
+  cada um com prova): (a) **push de cada repo + `HEAD == origin`** (`schematize-git -> scripts/check-git.sh . --conclusao`,
+  piso 22); (b) **relatório a cada 30 min em `<archive>/relatorios/` e handoff a cada 6 h**, com o
+  custo lido de `<archive>/custos/` (piso 26; `check-ritmo.sh`); e, **quando o plano tem**:
+  rota/endpoint -> **matriz de acesso M == N** (piso 20); auth/login -> **passkey na fase 0** (piso 21);
+  CI -> **gatilho `workflow_dispatch` + tags `hml-*`/`v*`**, sem `pull_request` (piso 27,
+  `check-ci-triggers.sh`); microserviço -> **`resilience.yml` + os 7 testes** (piso 28). O gate
+  (`check-contexto.sh`, passo 4d) reprova a Fase 0 sem eles.
 - Se o usuário **já tem um checklist**, **incorpore-o inteiro** — nunca resuma nem apare. Some os
   itens dele aos derivados do plano.
 
@@ -85,7 +93,7 @@ Regras da convenção:
   (UX, segurança sensível, decisão de negócio) de ser marcado por um teste que passou.
 - **`- [~]` conta como aberto** (igual ao hook: só fecha respondendo, ou vai para `.schematize/overdev/BLOCKED` se não há caminho) e **fica visível**: cada on-hold tem uma pergunta em
   `./PERGUNTAS-OVERDEV.txt`. Ao ser respondido, vira `- [ ]`/`- [H ]` e entra no fluxo.
-- **Todo item de máquina precisa de prova** anexada na própria linha (ou logo abaixo): o comando
+- **Todo item de máquina precisa de prova** (`prova:`) anexada na própria linha (ou logo abaixo): o comando
   ou teste que o fecha. `- [ ]` sem prova é `- [ ]` que ninguém sabe fechar.
 
 **Tag de executor (obrigatória em todo item de máquina/humano-assistido).** Cada item do

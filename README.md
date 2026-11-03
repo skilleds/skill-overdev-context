@@ -37,7 +37,7 @@ unzip skill-overdev-context.zip -d .claude/skills/
 
 ## O que tem dentro
 
-- **SKILL.md** — o contrato: 9 pisos inegociáveis (fundação antes do laço; decisão só entra se
+- **SKILL.md** — o contrato: 10 pisos inegociáveis (fundação antes do laço; decisão só entra se
   acordada e com origem rastreável; plano ancorado no grafo real do índice; checklist exaustivo
   por contagem; convenção de 3 classes `- [ ]`/`- [H ]`/`- [~]`; rastreabilidade decisão→item→nó;
   saída durável no archive + control-plane `.schematize/overdev/`; esta skill MONTA, não CONSOME) + mapa de

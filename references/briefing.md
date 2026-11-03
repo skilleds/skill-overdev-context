@@ -77,6 +77,11 @@ ociosa** (`schematize-engineering` → `references/orquestracao.md` §9.6): agen
 que depende de outro agent → mata e enfileira com gatilho de dependência; terminou → mata; a
 varredura roda a cada item fechado no laço.
 
+**Ritmo de registro (piso 26):** o briefing declara ao laço, em 1 linha, que em trabalho ativo há
+**relatório a cada 30 min** em `<archive>/relatorios/` (com o custo lido de `<archive>/custos/`) e **handoff a
+cada 6 h** (e em fim de sessão/marco/compact), ambos commitados e empurrados na hora; aponte a engineering
+(`schematize-engineering -> references/orquestracao.md`), não copie a regra.
+
 ## Passagem de bastão (fim da montagem)
 
 Com o briefing gravado e o gate da Fase 0 fechado (`contexto.md` §6), a montagem **terminou**.

@@ -111,7 +111,11 @@ A montagem só está **pronta pra soltar o laço** quando **tudo** isto vale:
 
 **Critério verificável:** `scripts/check-contexto.sh [.schematize/overdev] [<projeto>_archive]`
 (instalado em `.claude/skills/schematize-overdev-context/scripts/`) confere por execução os
-artefatos, a contagem por classe, decisão→item e o grafo; exit 0 = gate fechado. Testado em
+artefatos, a contagem por classe, decisão→item e o grafo; exit 0 = gate fechado. Ele **não aprova stub**: PLAN com
+as seções Entra / NÃO entra / Riscos / DoD, item de máquina com `prova:`, todo item com `[D<n>]` ou `[piso]`, cada
+`[~]` com pergunta em `PERGUNTAS-OVERDEV.txt`, espelho do archive idêntico ao control-plane, o **bloco-piso**
+(push + `HEAD == origin`, relatório 30 min/handoff 6 h, matriz, passkey, gatilho de CI, resiliência) e a Fase 0
+**commitada e empurrada** no archive privado (piso 22; `--sem-git` só para ensaio). Testado em
 `scripts/check-contexto.test.sh` (casos vermelhos plantados).
 
 Fechado o gate: entregue o contexto e **passe o bastão** — `schematize overdev start "<objetivo>"`
@@ -126,6 +130,9 @@ Fechado o gate: entregue o contexto e **passe o bastão** — `schematize overde
 - **Não fecha o loop de histórico** — provar que o fundado aqui foi sanado é a `schematize-audit`.
 
 ## Quando rodar
+
+> **Pergunta ao usuário:** dentro de um overdev ativo, perguntar é VETADO (dúvida -> `- [~]` +
+> `PERGUNTAS-OVERDEV.txt`). Fora de overdev (sessão interativa que só monta o briefing), perguntar é permitido.
 
 - **Início de um overdev** — sempre, é a Fase 0 obrigatória antes do laço.
 - **Retomada de projeto parado** — remonta o contexto (decisões podem ter mudado, grafo pode ter

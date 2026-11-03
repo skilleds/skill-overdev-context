@@ -33,6 +33,9 @@ provar**). Convenção de **3 classes**:
 - `- [ ]`/`- [x]` = **máquina** (fecha com teste/gate); `- [H ]`/`- [H x]` = **humano** (aceite/
   revisão — a máquina **não** auto-fecha); `- [~]` = **on-hold/parkeado** (conta como aberto; sem caminho → `BLOCKED`).
 - Cubra testes, edge cases, erro/loading/vazio, doc-comment + índice/MAPA (§39), DoD, archive.
+- **Bloco-piso (pisos 20-29, `references/plano-checklist.md` B.1):** push + `HEAD == origin` (22), relatório 30 min/
+  handoff 6 h + `custos/` (26) e, se couber, matriz de acesso (20), passkey (21), gatilho de CI sem PR (27),
+  `resilience.yml` + 7 testes (28) — itens `[sonnet]` com `[piso]` e `prova:`.
 - Checklist do usuário **incorporado inteiro** (nunca resumido). **Rastreabilidade** decisão→item→nó.
 - **Tag de executor por item:** `[sonnet]` (default) ou `[opus: <motivo>]` (só após escalada
   registrada); cada item = **uma micro-task de Sonnet** (entrada/saída/arquivo-alvo/prova na linha).
@@ -47,7 +50,7 @@ provar**). Convenção de **3 classes**:
 on-holds. Grava em `<projeto>_archive/overdev/<YYYY-MM-DD>-CONTEXTO.md`.
 
 ## 6. Gate da Fase 0 e passagem de bastão
-Rode o gate verificável: `bash .claude/skills/schematize-overdev-context/scripts/check-contexto.sh .schematize/overdev <projeto>_archive` — exit 0 ou volte e corrija a falha impressa.
+**Commit + push do `<projeto>_archive` (repo privado) com a Fase 0 espelhada** (piso 22). Rode o gate verificável: `bash .claude/skills/schematize-overdev-context/scripts/check-contexto.sh .schematize/overdev <projeto>_archive` — exit 0 ou volte e corrija a falha impressa. Ele reprova stub: PLAN sem Entra/NÃO entra/Riscos/DoD, item sem `prova:` ou sem `[D<n>]`/`[piso]`, `[~]` sem pergunta, espelho divergente, bloco-piso ausente e archive não commitado/empurrado (`--sem-git` só para ensaio).
 Só está pronto quando: `DECISOES.md` colhido · grafo carregado (ou ausência + item de gerá-lo) ·
 `PLAN.md` pesado · `CHECKLIST.md` derivado (3 classes, rastreável) · briefing gravado. Fechado:
 **reporte** (objetivo, contagem do checklist por classe, decisões-chave + defaults, perguntas

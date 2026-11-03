@@ -10,4 +10,7 @@ Gere o handoff da montagem de contexto **sem** compactar — pra fim de sessão 
 2. `<projeto>_archive/context/<YYYY-MM-DD-HH-MM-SS>-checklist.md` — **FEITO vs EM ABERTO** das
    etapas da fundação (o que falta antes de o gate da Fase 0 fechar e soltar o `/eng-overdev`).
 
+Piso 26: handoff a cada 6 h de trabalho ativo e relatório a cada 30 min em `<projeto>_archive/relatorios/`
+(carimbos em `.ritmo.json`); depois de gravar, **commit + push** do archive (piso 22: `HEAD == origin`).
+
 Não rode `/compact` — só arquiva.
